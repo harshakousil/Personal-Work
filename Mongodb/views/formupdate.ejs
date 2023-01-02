@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .middle-container
+    {
+        width: 40rem;
+        height: 23rem;
+        margin-left: 25rem;
+        background-color: beige;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1{
+        padding-top: 2rem;
+        font-size: x-large;
+    }
+    input{
+        width: 15rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding:5px;
+    }
+    .btn
+    {
+        width: 7rem;
+        padding: 10px;
+        border: none;
+        margin-top: 2rem;
+        background-color: #3D8361;
+        border: 0.5px solid white;
+        border-radius: 5px;
+        font-size: large;
+        color: white;
+
+    }
+  </style>
+  <body>
+    <div class="middle-container">
+    <h1>Edit details</h1>
+    <% if( typeof userdata !== 'undefined' ){ %>
+    <form method="post" action="/save/<%=userdata._id %>">
+      <input type="text" name="name" value="<%=userdata.name %>" /><br>
+      <input type="text" name="email" value="<%=userdata.email %>" /><br>
+      <input type="number" name="phoneno" value="<%=userdata.phoneno %>" /><br>
+      <input type="text" name="address" value="<%=userdata.address %>" /><br>
+      <button class="btn" type="submit">Update</button>
+    </form>
+    <% } %>
+    </div>
+  </body>
+</html>

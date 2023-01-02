@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Application</title>
+    <link rel="stylesheet" href="../public/styles/style.css">
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            text-align: center;
+            background: lightcyan;
+        }
+
+        .top-container {
+            width: 100%;
+            height: 15rem;
+            background-color: thistle;
+            margin-bottom: 5rem;
+            background-image: url("")
+        }
+
+        .heading {
+            padding-top: 1.5rem;
+            color: black;
+
+        }
+
+        .add {
+            padding: 10px;
+            color: gold;
+            background: #000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="top-container">
+        <h1 class="heading"> Create a new Blog </h1>
+    </div>
+    <!-- <form action="./addblog.ejs">
+        <input type="submit" value="Add a Blog">
+    </form> -->
+
+    <a href="/addblog" class="add">Add a Blog</a>
+    <!-- <input type="button" value="Add a Blog" onclick="location.href='./addblog.ejs'" /> -->
+    <!-- <form method="post" action="/addblog">
+        <label for=" blog"> Write your blog here
+            <textarea name="newblog"> </textarea>
+        </label>
+        <input type="submit" value="Add a Blog" />
+    </form> -->
+    <% for(let i=0; i<blogs.length; i++) {%>
+
+        <article>
+            <p>
+                <span>
+                    <%=blogs[i].body %>
+                </span>
+            <form method="post" action="/deleteblog/<%=blogs[i]._id%>">
+                <input type="submit" value="Delete Blog" />
+            </form>
+            </p>
+        </article>
+        <% } %>
+
+</body>
+
+</html>

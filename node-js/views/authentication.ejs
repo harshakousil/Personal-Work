@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session Express</title>
+    <link rel="stylesheet" href="./stylesheets/stylesheet.css" />
+  </head>
+  <body>
+    <div>
+      <% if (typeof errors !== 'undefined') { %>
+      <ul>
+        <% errors.forEach((error) => { %>
+        <li class="error"><%= error %></li>
+        <% }); %>
+      </ul>
+      <% } %>
+      <form action="/user" method="post">
+        <h2>Add Info</h2>
+        <div class="labels">
+          <label>Name</label>
+          <input type="text" name="username" />
+        </div>
+        <div class="labels">
+          <label>Email</label>
+          <input type="text" name="email" />
+        </div>
+
+        <button type="submit">Add User</button>
+      </form>
+      <% if (typeof username !== 'undefined' && typeof email !== 'undefined') { %>
+            <% if (username.length !==0 && email.length !==0 ) { %>
+            <p class="success"><%=username%> accessed with <%=email%></p>
+            <% } %>
+        <% } %>
+    </div>
+  </body>
+</html>
+

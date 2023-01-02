@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-family:'Times New Roman', Times, serif
+    }
+    .middle-container
+    {
+        margin-top: 1rem;
+        width: 40rem;
+        height: 23rem;
+        margin-left: 25rem;
+        background-color: beige;
+   
+    }
+    h1{
+        padding-top: 2rem;
+        padding-left: 13.5rem;
+        font-size: x-large;
+        font-weight: 100;
+    }
+    .label
+    {
+        font-size:20;
+        flex: 2;
+        text-align: left;
+        padding-top: 0.5rem;
+    }
+    input
+    { flex: 3;
+        width: 15rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding:5px;
+        font-size: medium;
+    }
+    .matter
+    {
+        margin-left: 2rem;
+        width: 30rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .btn
+    {
+        width: 7rem;
+        padding: 10px;
+        border: none;
+        margin-top: 2rem;
+        margin-left: 13.5rem;
+        background-color: #3D8361;
+        border: 0.5px solid white;
+        border-radius: 5px;
+        font-size: large;
+        color: white;
+
+    }
+    .btn:hover
+    {
+        cursor: pointer;
+        padding-inline: 2px;
+    }
+    .bottom-conatiner
+    {
+        margin-top: 5rem;
+        width: 100%;
+        height: auto;
+        background-color:#EEF1FF;
+        
+    }
+    h2{
+        padding-top: 2rem;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+    .table
+    {
+        margin-left: 9rem;
+        width: 80%;
+        text-align: center;
+        border: 2px solid black;
+    }
+    .head{
+        font-size: 20px;
+        padding-top: 2px;
+        padding-bottom: 1rem;
+    }
+    .tdata
+    {
+        padding: 1rem;
+        font-size: large;
+    }
+    .btn-1{
+        width: 9rem;
+        padding:0.5rem;
+        border: none;
+        background-color: #3D8361;
+        border-radius: 5px;
+        font-size: large;
+        color: white;
+        text-decoration: none;
+    }
+
+  </style>
+  <body>
+    <div class="middle-container">
+            <h1>Enter User Details</h1>
+            <form method="post" action="/add">
+            <div class="matter">
+            <label class="label">User Name:</label><br>
+            <input type="text" name="name" required /><br>
+            </div>
+            <div class="matter">
+            <label class="label">Email :</label><br>
+            <input type="text" name="email"  required/><br>
+            </div>
+            <div class="matter">
+            <label class="label">Phone Number :</label><br>
+            <input type="number" name="phoneno" required /><br>
+            </div>
+            <div class="matter">
+            <label class="label">Address:</label><br>
+            <input type="text" name="address" required /><br>
+            </div>
+            <button class="btn" type="submit">submit</button>
+            </form>
+    </div>
+    <div class="bottom-conatiner">
+    <% if(typeof userdata !== 'undefined') { %>
+    <h2>User Details</h2>
+    <table class="table">
+      <tr class="row">
+        <th class="head">Name</th>
+        <th class="head">Email</th>
+        <th class="head">Number</th>
+        <th class="head">Address</th>
+        <th class="head">Edit</th>
+        <th class="head">Delete</th>
+      </tr>
+      <% for(let i = 0 ; i < userdata.length; i++) { %>
+      <tr>
+        <td class="tdata"><%=userdata[i].name %></td>
+        <td class="tdata"><%=userdata[i].email %></td>
+        <td class="tdata"><%=userdata[i].phoneno %></td>
+        <td class="tdata"><%=userdata[i].address %></td>
+        <td class="tdata"><a  class="btn-1"href="/update/<%=userdata[i]._id %>">Edit</a></td>
+        <td class="tdata"><a  class="btn-1"href="/delete/<%=userdata[i]._id %>">Delete</a></td>
+      </tr>
+      <% } %>
+    </table>
+    <% } %>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,375 @@
+
+    *
+    {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+
+    }
+    .top-nav
+    {
+        background-color:#FFCB42;
+        display: flex;
+        height: 4rem;
+    }
+    .top-nav-name
+    {
+        flex:1;
+        margin-left: 10rem;
+        margin-top:10px;
+        font-weight: 500;
+        font-family: 'Raleway', sans-serif;
+    }
+    .nav-links-div{
+        flex: 2;
+        text-align: center;
+        margin-right: 10rem;
+        margin-top:20px;
+
+    }
+    .nav-links
+    {
+        list-style-type: none;
+        display: flex;
+        justify-content: right;
+       
+    }
+    .nav-links a{
+        text-decoration: none;
+        list-style-type:none;
+        justify-content: flex-end;
+        margin-right:2rem;
+        
+    }
+    .active {
+        color: white;
+    }
+    .nav-links a:hover
+    {
+        color: white;
+    }
+    .nav-links a:active
+    {
+        color: white;
+    }
+    .middle-container
+    {   width: 68rem;
+        height:fit-content;
+        background-color:white;
+        margin-left: 10rem;
+    }
+    .back-container
+    {
+        background-color:black;
+        height:62rem;
+        
+    }
+    .top-mc
+    {
+        height: 2rem;
+        background-color: #CFD2CF;
+    }
+
+.Main-content
+{
+    display: flex;
+    height: fit-content;
+}
+.img-div
+{
+    flex: 1;
+    text-align: center;
+    height:fit-content;
+}
+.img
+    {
+        margin: 2rem 3rem;
+        margin-bottom: 1rem;
+        width: 20rem;
+        height: 21rem;
+    }
+.btn
+{
+    width: 20rem;
+    height: 3rem;
+    background-color: #FFCB42;
+    border-radius: 20px;
+    border-style: none;
+    font-family: 'Great Vibes', cursive;
+    font-weight: bolder;
+    font-size:large;
+    cursor: pointer;
+}
+.btn:hover
+{
+    background-color:black;
+    border-style: groove;
+    border-color: black;
+    color: #FFCB42;
+}
+.text-div
+{
+    margin-top: 2rem;
+    margin-right: 3rem;
+    flex: 2;
+    height: fit-content;
+}
+.text-div p{
+    justify-content: start;
+    margin-top:10px;
+    align-items:center;
+    line-height: 1.7rem;
+}
+.fa {
+  padding: 13px;
+  font-size: 15px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 18px 10px;
+  border-radius: 7px;
+}
+
+.fa:hover {
+    opacity:1;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color:white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.skill-container
+{
+    background-color:#CFD2CF;
+    height: 32rem;
+    width: 100%;
+    float: left;
+}
+.skill-tag
+{
+   margin-left: 25rem;
+   margin-top: 3rem;
+   width: 15rem;
+   height: 3rem;
+   background-color:none;
+   color:black;
+   border-color: black;
+   border-style: solid;
+   text-align: center;
+   padding-top: 3px;
+}
+
+.flex-container
+{
+ display: flex;
+}
+.web-dev
+{
+    flex:1 ;
+    margin-left:2rem ;
+    margin-top: 2rem;
+}
+.web-dev h1{
+    padding: 0px,15px;
+}
+.web-dev p{
+  margin-top: 20px; 
+  text-align: left;
+}
+
+.prog
+{
+    flex: 1;
+    margin-top: 2rem;
+}
+.prog h1{
+    padding: 0px,15px;
+}
+.prog p{
+  margin-top: 20px; 
+  text-align: left;
+}
+.label
+{
+    font-weight: bold;
+    font-size: large;
+}
+.skill-bar
+{
+    width:25rem;
+    height: fit-content;
+    margin-top: 1rem;
+}
+.bar-range
+{
+    width: 25rem;
+    height:2rem;
+    background-color: #FFCB42;
+    display: flex;
+}
+.bar-range h4{
+    color: white ;
+}
+.html-percentage
+{
+    flex: 3;
+    align-items: flex-end;
+}
+.html-rem
+{
+    flex:1;
+    background-color: white;
+}
+.html-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.boot-percentage
+{
+    flex:2 ;
+    align-items: flex-end;
+}
+.boot-rem
+{
+    flex:1;
+    background-color: white;
+}
+.boot-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.rd-percentage
+{
+    flex:2 ;
+    align-items: flex-end;
+}
+.rd-rem
+{
+    flex:1;
+    background-color: white;
+}
+.rd-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.php-percentage
+{
+    flex:3 ;
+    align-items: flex-end;
+}
+.php-rem
+{
+    flex:1;
+    background-color: white;
+}
+.php-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+    
+}
+.php-percentage
+{
+    flex:3 ;
+    align-items: flex-end;
+}
+.php-rem
+{
+    flex:1;
+    background-color: white;
+}
+.php-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.c-percentage
+{
+    flex:3;
+    align-items: flex-end;
+}
+.c-rem
+{
+    flex:2;
+    background-color: white;
+}
+.c-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.java-percentage
+{
+    flex:2;
+    align-items: flex-end;
+}
+.java-rem
+{
+    flex:1;
+    background-color: white;
+}
+.java-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.py-percentage
+{
+    flex:4;
+    align-items: flex-end;
+}
+.py-rem
+{
+    flex:1;
+    background-color: white;
+}
+.py-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+.js-percentage
+{
+    flex:3;
+    align-items: flex-end;
+}
+.js-rem
+{
+    flex:2;
+    background-color: white;
+}
+.js-percentage h4
+{
+    float: right;
+    padding-top: 8px;
+}
+
+

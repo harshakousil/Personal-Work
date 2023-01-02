@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- <div class="main-div" id="main">
+        <h1> Welcome to SignUp page</h1>
+
+        <div id="msg">
+            <p id="para"></p>
+        </div>
+        <form id="register" method="post" action="">
+            <label for="username">Username :
+                <br>
+                <input type="text" id="user" name="username" />
+                <br>
+            </label>
+            <label for="Email">Email :<br>
+                <input type="email" id="email" name="email" /><br>
+            </label>
+            <label for="password">Password :<br>
+                <input type="password" id="password" name="password" /><br>
+            </label>
+            <br>
+            <input type="submit" value="register" />
+        </form>
+        <p>Already Have an account ? <a href="./index.html">Login</a> </p>
+    </div> -->
+
+    <div id="middle" class="flex min-h-full items-top  justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-md space-y-8">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">SignUp Here
+                </h2>
+            </div>
+            <div hidden id="msg" class="text-center text-red-900 p-2 rounded border border-red-800 bg-red-300">
+
+            </div>
+            <form id="register" class="mt-8 space-y-6" method="post">
+                <div class="-space-y-px rounded-md shadow-sm  ">
+                    <div>
+                        <label for="username" class="sr-only">Email address</label>
+                        <input id="username" id="user" name="username" type="text" required
+                            class="relative block w-full appearance-none mb-5 rounded rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            placeholder="username">
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email address</label>
+                        <input id="emailId" id="email" name="email" type="email" required
+                            class="relative block w-full appearance-none mb-5 rounded rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            placeholder="email address">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Password</label>
+                        <input id="passwordId" name="password" type="password" required
+                            class="relative block w-full appearance-none rounded rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                            placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+
+                    <div class="text-sm">
+                        <p> Already have an Account <a href="../SignIn/index.html"
+                                class="font-medium text-indigo-600 hover:text-indigo-500">Login here</a></p>
+                    </div>
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Register"
+                        class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" />
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                    </span>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<script src="./register.js" type="module"></script>
+
+</html>

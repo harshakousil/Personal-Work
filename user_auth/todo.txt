@@ -1,0 +1,43 @@
+ There is lot of things remaining to od in the blog application
+
+ Bugs To be Fixed :
+    1. Upto now i have accried the userid, that was created  whenever the registration happens.
+    
+      What if user is already registred and want to acces the home page, 
+      in that case How can i get the user ID.
+
+    2. there is a problem with rendering pages, It always takes previous route with current route.
+        Need to fix the routing probelm.
+
+
+ features to be added:
+    Display particular user Blogs  in the home page.
+
+    display all other users in the  side nav and when a user clicks on particular user  ?
+    I have to display the that particulat user blogs data with comment option.
+
+    Provide Edit and Delete option for user created blogs.
+
+    Display the comments of other users  in the current user blog page.
+   
+    Provide a logout Button page in the home_page. that will redirect to  Registrion page.
+
+
+
+ things  Done today,
+
+ created registraion page which will carry userId to sll other pages.
+
+ created login page which will carry user name and userId along with it.\
+  
+ Integrated both userSchema and blogModel by placing userId in the blogModel.
+    
+
+ Created  add a  blog page and it will store  blog data and userId  we provide.
+
+
+ Now, Only particular user id belonging blogs will be displayed.
+
+
+
+

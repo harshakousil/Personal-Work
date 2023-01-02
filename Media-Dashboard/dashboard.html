@@ -1,0 +1,474 @@
+<!-- Body background color - #F8F8FA
+Sidebar background color - #343549
+Primary color #626ED4 (Cards, button)
+Header background color - #EDECF1
+Text color - #575C62
+Table border color - #E7E7E7
+Success color - #2AA39A (Green ribbon, status badge)
+Danger color - #EC4561 (Red ribbon, status badge)
+Info color - #38A5F8 (Blue ribbon, status badge)
+Warning color - #F8B425 (Yellow ribbon, status badge)
+Chat Message left background - #E1E4F7
+Chat Message right background - #EFF0F4 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="dashboard.css">
+    <title>task3</title>
+</head>
+<style>
+
+         
+</style>
+<body onresize="refresh()">
+            <div  id="side-nav-bar" class="side-nav-bar">
+                    <button id="x">X</button>
+                    <h2>GeekyAnts</h2>
+                    <h5>MAIN</h5>
+                    <ul class="nav-list">
+                        <li>
+                            <span class="material-symbols-outlined">home</span>
+                            <a href="">Dashboard</a>
+                            <label class="notifications">2</label>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">calendar_today</span>
+                            <a href="">Calendar</a>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">mail</span>
+                            <a href="">Email</a>
+                            <span class=" right material-symbols-outlined">chevron_right</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">view_in_ar</span>
+                            <a href="">UI Elements</a>
+                            <span class="right material-symbols-outlined">chevron_right</span>
+                        </li>
+                        <li><span class="material-symbols-outlined">description</span>
+                            <a href="">Forms</a>
+                            <label style="background-color: #24a399;" class="notifications">9</label>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">pie_chart</span>
+                            <a href="">Charts</a>
+                            <span class=" right material-symbols-outlined">chevron_right</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">drag_indicator</span>
+                            <a href="">Tables</a>
+                            <span class=" right material-symbols-outlined">chevron_right</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">mood</span>
+                            <a href="">Icons</a>
+                            <span class=" right material-symbols-outlined">chevron_right</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">location_on</span>
+                            <a href="">Maps</a>
+                            <label  style="background-color:#f0425e" class="notifications">2</label>
+                        </li>
+                    </ul>
+            </div>
+            <div class="middle-container" id="middle-container">
+
+                            <div class="header">
+                                <div class="head-bar-left">
+                                    <div class="head-bar-symbol">
+                                        <span id="btn"class="material-symbols-outlined" onclick="open_close()">menu</span>
+                                    </div>
+                                    <select name="Create">
+                                        <option value="Create">Create</option>
+                                    </select>
+                                    <!-- <div class="button">
+                                        <span>Create<span><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                        </svg></span>
+                                    </div> -->
+                                </div>
+                                <div class="head-bar-right">
+                                    <div class="search">
+                                        <input type="text" placeholder="Search...">
+                                        <span class="material-symbols-outlined">search</span>
+                                    </div>
+                                    <select name="Create">
+                                        <option value="English">English</option>
+                                    </select>
+                                    <!-- <div class="button-1">
+                                        <span>English<span><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                        </svg></span>
+                                    </div> -->
+                                    <!-- <div class="lang">
+                                        <i class=" flag-united-states"></i>
+                                        <h4>English</h4>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                                        </svg>
+                                    </div> -->
+                                    <div class="full_screen">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fullscreen" viewBox="0 0 16 16">
+                                            <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="notification">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="image">
+                                        <img src="./img-3.jpg">
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="dash-board-top">
+                            <div class="dash-heading">
+                            <h3>Dashboard</h3>
+                            <h4>Welcome toVeltrix Dashboard</h4>
+                            </div>
+                            <div class="dash-btn">
+                            <button> <span class="material-symbols-outlined" >Settings</span><p>&nbsp;Settings</p></button>
+                            </div>
+                        </div>
+                        <div class="squares">
+                                    <div class="box">
+                                        <div class="box-top">
+                                                <div class="img">
+                                                <img class="square-img" src="box1.png">
+                                                </div>
+                                    
+                                                <div class="cont">
+                                                    <h3 style="color: white;">ORDERS</h3>
+                                                    <br>
+                                                    <h2>1,685</h2>
+                                                </div>
+                                                <div id="flag-1" class="flag-class">
+                                                    <div class="flag-1" align="right" style="padding-top: 10px;">+12%</div>
+                                                    <span  style=" color:#2AA39A" class="material-symbols-outlined">arrow_upward</span>
+                                                </div>
+                                         </div>
+                                                <div class="order-bottom">
+                                                    <h4 style="color: white;">Since last Month</h4>
+                                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                                </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="box-top">
+                                            <div class="img">
+                                                    <img class="square-img" src="box2.png">
+                                            </div>
+                                    
+                                                <div class="cont">
+                                                    <h3 style="color: white; ">REVENUE</h3>
+                                                    <br>
+                                                    <h2>52,368</h2>
+                                                </div>
+                                                <div   id="flag-2" class="flag-class">
+                                                    <div class="flag-2" align="right" style="padding-top: 10px;">-28%</div>
+                                                    <span  style="color:#EC4561" class="material-symbols-outlined">
+                                                        arrow_downward</span>
+                                                </div>
+                                        </div>
+                                            <div class="order-bottom">
+                                                <h4 style="color: white;">Since last Month</h4>
+                                                <span class="material-symbols-outlined">arrow_forward</span>
+                                            </div>
+                                    
+                                    </div>
+                                    <div class="box">
+                                        <div class="box-top">
+                                                <div class="img">
+                                                    <img class="square-img"  src="box3.png">
+                                                    </div>
+                                        
+                                                    <div class="cont">
+                                                        <h3 style="color: white; position:absolute;">AVERAGE PRICE </h3>
+                                                        <br>
+                                                        <br>
+                                                        <h2>15.8</h2>
+                                                    </div>
+                                                    <div id="flag-3" class="flag-class">
+                                                        <div class="flag-3" align="right" style="padding-top: 10px;">00%</div>
+                                                        <span style=" color:#2AA39A" class="material-symbols-outlined">
+                                                            arrow_upward</span>
+                                                    </div>
+                                        </div>
+                                            <div class="order-bottom">
+                                                <h4 style="color: white;">Since last Month</h4>
+                                                <span class="material-symbols-outlined">arrow_forward</span>
+                                            </div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="box-top">
+                                                <div class="img">
+                                                    <img class="square-img" src="box4.png">
+                                                </div>
+                                                <div class="cont">
+                                                    <h3 style="color: white; position: absolute;">PRODUCT SOLD</h3>
+                                                    <br>
+                                                    <br>
+                                                    <h2>2436</h2>
+                                                </div>
+                                                <div id="flag-4" class="flag-class">
+                                                    <div class="flag-4" align="right" style="padding-top: 10px;">+84%</div>
+                                                    <span  style=" color:#2AA39A" class="material-symbols-outlined">
+                                                        arrow_upward</span>
+                                                </div>
+                                        </div>
+                                            <div class="order-bottom">
+                                                <h4 style="color: white;">Since last Month</h4>
+                                                <span class="material-symbols-outlined">arrow_forward</span>
+                                            </div>
+                                    
+                                    </div>
+                            </div>
+                            <div class="table-chat">
+                                <div class="table-class">
+                                        <table class="table-content">
+                                            <tr colspan="7"></tr>
+                                                <td>Latest Transaction</td></tr>
+                                            <tr>
+                                                <td>(#id)</td>
+                                                <td>Name</td>
+                                                <td class="td-class">    </td>
+                                                <td>Date</td>
+                                                <td>Amount</td>
+                                                <td> Status</td>
+                                                <td>    </td>
+                                            </tr>
+                                            <tr>
+                                                <td>14256</td>
+                                                <td><img src="./img-1.webp"></td>
+                                                <td class="td-class"> Philipe Smead</td>
+                                                <td>15/1/2018</td>
+                                                <td>$94</td>
+                                                <td><div class="pos">Dilivered</div></td>
+                                                <td><button>Edit</button></td>
+                                            </tr>
+                                          
+                                            <tr>
+                                                <td>14257</td>
+                                                <td><img src="./img-2.jpg"></td>
+                                                <td class="td-class">Brent Shipley</td>
+                                                <td>16/1/2019</td>
+                                                <td>$112</td>
+                                                <td><div class="pen"> Pending</div></td>
+                                                <td><button>Edit</button></td>
+                                            </tr>
+        
+                                            <tr>
+                                                <td>14258</td>
+                                                <td><img src="./img-3.jpg"></td>
+                                                <td class="td-class">Robert  Sitton</td>
+                                                <td>17/1/2019</td>
+                                                <td>$116</td>
+                                                <td><div class="pos">Dilivered</div></td>
+                                                <td><button>Edit</button></td>
+                                            </tr>
+            
+                                            <tr>
+                                                <td>14259</td>
+                                                <td><img src="./img-1.webp"></td>
+                                                <td class="td-class">Alberto Jackson</td>
+                                                <td>18/1/2019</td>
+                                                <td>$109</td>
+                                                <td><div class="neg">Cancel</td>
+                                                <td><button>Edit</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>14260</td>                                        
+                                                <td><img src="./img-2.jpg"></td>
+                                                <td class="td-class">David Sanchez</td>
+                                                <td>19/1/2019</td>
+                                                <td>$120</td>
+                                                <td><div class="pos">Dilivered</div></td>
+                                                <td><button>Edit</button></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                <div class="chatbox-search">
+                                    <div class="chat-box">
+                                            <h3>Chat</h3>
+        
+                                            <div class="message-1">
+                                                <div class="img-time">
+                                                    <img src="./img-3.jpg">
+                                                    <p>10:00</p>         
+                                                </div>
+                                                <div class="message-content-1">
+                                                    <div>
+                                                        <span class="flag-sender"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Jhon Deo </p>
+                                                    <P>Hello!</P>
+                                                </div>
+                                            </div>
+                                            
+                                             <div class="message-2">
+                                                <div class="message-content-2">
+                                                    <div>
+                                                        <span class="flag-reciever"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Smith</p>
+                                                    <P>Hi, How are you? 
+                                                        What about our next meeting ?</P>
+                                                </div>
+                                                <div class="img-time">
+                                                    <img src="./img-1.webp">
+                                                    <p>10:01</p>         
+                                                </div>
+                                            </div>
+                                            <div class="message-3">
+                                                <div class="img-time">
+                                                    <img src="./img-3.jpg">
+                                                    <p>10:04</p>         
+                                                </div>
+                                                <div class="message-content-3">
+                                                    <div>
+                                                        <span class="flag-sender"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Jhon Deo</p>
+                                                    <P>yeah everything is fine</P>
+                                                </div>
+                                            </div>
+                                            <div class="message-4">
+        
+                                                <div class="message-content-4">
+                                                    <div>
+                                                        <span class="flag-reciever"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Smith</p>
+                                                    <P>Wow that's great,Looking forward</P>
+                                                </div>
+                                                <div class="img-time">
+                                                    <img src="./img-1.webp">
+                                                    <p>10:05</p>         
+                                                </div>
+                                            </div>
+                                            <div class="message-5">
+                                                <div class="img-time">
+                                                    <img src="./img-3.jpg">
+                                                    <p>10:07</p>         
+                                                </div>
+        
+                                                <div class="message-content-5">
+                                                    <div>
+                                                        <span class="flag-sender"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Jhon Deo</p>
+                                                    <P>See you soon</P>
+                                                </div>
+        
+                                            </div>
+                                            <div class="message-6">
+        
+                                                <div class="message-content-6">
+                                                    <div>
+                                                        <span class="flag-reciever"> </span>
+                                                    </div>
+                                                    <p style="color:#626ED4 ;">Smith</p>
+                                                    <P>Sure,See you soon</P>
+                                                </div>
+                                                <div class="img-time">
+                                                    <img src="./img-1.webp">
+                                                    <p>10:09</p>         
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="type-chat">
+                                        <input type="text" placeholder="Enter your text ">
+                                        <button style="background-color:#2AA39A;">send</button>
+                                </div>
+                            </div>
+
+             </div>
+
+<!-- Code injected by live-server -->
+</body>
+<!-- <script>
+    document.getElementById("btn").addEventListener("click",open_close);
+    var start=0;
+    function open_close()
+    {
+    if(screen.width>425){
+    if(start===0)
+    {
+        start=1;
+        document.getElementById("btn").style.width="250px";
+        Document.getElementById("side-nav-bar").style.width="2500px";
+    }
+    else{
+        start=0;
+        document.getElementById("btn").style.width="0px";
+        Document.getElementById("side-nav-bar").style.width="250px";
+
+    }}
+    else{
+        document.getElementById("side-nav-bar").style.display='block';
+            document.getElementById("side-nav-bar").style.position='absolute';
+            document.getElementById("side-nav-bar").style.zIndex='1';
+            document.getElementById("side-nav-bar").style.width='50%';
+            document.getElementById("side-nav-bar").style.height='1900px';
+    }
+    }
+    document.getElementById("x").addEventListener('click',()=>{
+    document.getElementById("side-nav-bar").style.display='none';
+  })
+</script> -->
+<script>
+    function refresh(){
+        location.reload();
+    }
+    var state=0;
+     function open_close(){
+     if(screen.width > 425){
+      if(state===0)
+      {
+       state=1;
+       document.getElementById("side-nav-bar").style.width='0%';
+       document.getElementById("middle-container").style.width='100%';
+       if(screen.width > 425 && screen.width< 769)
+       {
+        document.getElementById("flag-1").style.width='10rem';
+        document.getElementById("flag-2").style.width='10rem';
+        document.getElementById("flag-3").style.width='10rem';
+        document.getElementById("flag-4").style.width='10rem';
+       }
+       
+
+      }
+      else{
+       state=0;
+       document.getElementById("side-nav-bar").style.width='15%';
+       document.getElementById("middle-container").style.width='85%';
+       if(screen.width > 425 && screen.width< 769)
+       {
+        document.getElementById("flag-1").style.width='6.5rem';
+        document.getElementById("flag-2").style.width='6.5rem';
+        document.getElementById("flag-3").style.width='6.5rem';
+        document.getElementById("flag-4").style.width='6.5rem';
+       }
+      }
+     }
+     else{
+             document.getElementById("side-nav-bar").style.display='block';
+             document.getElementById("side-nav-bar").style.position='absolute';
+             document.getElementById("side-nav-bar").style.zIndex='1';
+             document.getElementById("side-nav-bar").style.width='50%';
+             document.getElementById("side-nav-bar").style.height='1900px';
+     }
+  }
+   document.getElementById("x").addEventListener('click',()=>{
+     document.getElementById("side-nav-bar").style.display='none';
+   })
+
+ </script>
+</html>

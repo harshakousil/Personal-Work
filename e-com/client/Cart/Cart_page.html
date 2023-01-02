@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <navbar class="w-full max-w-screen-2xl mx:auto text-gray-900 bg-white shadow-sm">
+        <nav class="flex  justify-between py-8 px-6 lg:px-16 xl:px-24">
+            <a href="#" class="text-3xl md:text-2xl font-bold tracking-wide w-1/3 ml-12">
+                Shop<span class="text-yellow-500">ify</span>
+            </a>
+            <div class=" w-3/5 flex justify-end max-md:justify-around">
+                <ul
+                    class="flex gap-3  justify-between w-2/5 mr-20 max-md:w-4/5 max-md:mr-0  lg:flex-row max-md:space-y-0  space-y-6 md:sm:space-y-0 max-md:space-x-0 lg:md:sm:-x-8">
+                    <li class="text-lg md:text-base  lg:text-lg font-medium group text-yellow-500">
+                        <button onclick="window.location.replace('../Home/home_page.html')">Home
+                        </button>
+                        <div
+                            class="h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                        </div>
+                    </li>
+
+                    <li
+                        class="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
+                        <button onclick="window.location.replace('../Cart/Cart_page.html')" class="relative flex">
+                            <svg class="flex-1 w-8 h-8 fill-current" viewbox="0 0 24 24">
+                                <path
+                                    d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" />
+                            </svg>
+                            <span
+                                class="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"><span
+                                    id="cartIcon"></span>
+                            </span>
+                        </button>
+                    </li>
+                    <li class="text-lg md:text-base lg:text-lg font-medium group">
+                        <button id="delete">Logout
+                        </button>
+                        <div
+                            class="h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </navbar>
+    <div class="w-screen flex bg-red-300 h-1/5 relative top-0 ">
+        <div id="toastItem"
+            class="flex  hidden items-center  float-right absolute top-4  right-0 p-4 mr-4 mb-4 w-full max-w-xs text-gray-500 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+                class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ml-3 text-sm font-normal">Item moved successfully.</div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-dismiss-target="#toast-success" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" onclick="closeFunction()"
+                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="toastItem1"
+        class="flex  hidden items-center  float-right absolute top-4  right-0 p-4 mr-4 mb-4 w-full max-w-xs text-gray-500 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+            class="inline-flex flex-shrink-0 justify-center items-center w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">Cart is Empty.</div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+            data-dismiss-target="#toast-success" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" onclick="closeFunction()"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    </div>
+    <div class="w-full bg-gray-200 h-32 shadow-lg shadow-border-xl  mt-4  flex flex-col items-end justify-evenly">
+        <h1 class="text-bold text-black text-xl pr-6">Proceed to Checkout</h1>
+        <button type="button" id="checkout"
+            class="text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 mr-6">
+            CheckOut</button>
+    </div>
+    <div class="m-5" id="root">
+
+    </div>
+    <!-- <button id="goHome" type="submit">Go to Home</button> -->
+</body>
+<script type="module" src="./cart.js"></script>
+<script>
+    function closeFunction() {
+        window.location.reload()
+    }
+</script>
+
+</html>

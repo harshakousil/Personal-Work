@@ -1,0 +1,211 @@
+
+    .grid-component
+    {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-gap: 1rem;
+    }
+    *
+        {
+            padding: 0;
+            margin: 0;
+        }
+        .img{
+            flex: 1;
+            padding-left: 1em;
+           /* background-image: linear-gradient(white, lightgrey); */
+        }
+        .friut{
+            width: 22rem;
+            height:30rem;
+            padding-left: 2em;
+        }
+        .first-container
+        {
+            display: flex;
+            margin: 2rem;
+            height: auto;
+        }
+    .top-container
+    { 
+        flex: 2;
+        float: left;
+        display:flex;
+        height:18rem;
+        align-items: flex-start;
+        box-shadow: 133px 132px 12px -126px rgb(172, 168, 168);
+
+        margin-top: 2.5rem;
+        margin-right: 5rem;
+
+    }
+    .heading
+    { 
+        flex: 2;
+        background-image: linear-gradient(#C1D5A4,white);
+        height:18rem;
+        border-right: 2px solid white;
+
+    }
+    .heading h1{
+        font-size:3rem;
+        padding-top: 10rem;
+        text-align:center;
+    }
+    .heading h2{
+        color: rgb(192,140,68);
+        padding-left: 13rem;
+        font-weight: 700;
+        font-size:xx-large;
+    }
+    .login
+    {
+        flex: 1;
+        background-image: linear-gradient(#f8ecd4,white);
+        text-align:left;
+        padding-left: 4rem;
+        height:18rem;
+    }
+    .login p{
+        padding-top: 3rem;
+        text-align: left;
+    }
+    .input
+    {
+        width: 10rem;
+        height: 1.5rem;
+        border: none;
+        border-radius: 1px solid;
+        background-image: #C1D5A4;
+    }
+    .sub
+    { 
+        margin-left: 7rem;
+        margin-top: 2rem;
+        width:3rem;
+        height:1.5rem;
+        background-image: #a7c181;
+        border: none;
+        color: rgb(35, 32, 32);
+    }
+    .para-div
+    {
+        display: flex;
+    }
+    .date
+    {
+        /* flex: 1; */
+        width: 6rem;
+        height:3rem;
+        margin-top: 2rem;
+    }
+    .top-div-line
+    {
+        display:flex;
+    }
+    .para{
+        display: flex;
+
+    }
+    .para p{
+        flex: 2;
+        text-align:left;
+        line-height:1.7;
+    }
+    p{
+        text-align:left;
+        line-height:1.7;
+    }
+    .content-div
+    {
+        display: flex;
+    }
+    .top-div-line
+    {
+        flex:0.5;
+        width:10px;
+    }
+    .title
+    {
+        flex: 3;
+        text-align: left;
+        color:#C1D5A4 ;
+
+    }
+    .title p
+    {
+        font-size:xx-large;
+        text-align: left;
+        padding-top: 20px;
+        padding-left: 2rem;
+    }
+    .lemon{
+        flex: 1;
+        size: 20px;
+        height: 9rem;
+        margin:2rem;
+        padding-right: 1rem;
+        padding-right: 2rem;
+    
+    }
+    .last-grid{
+        margin-right: 3rem;
+        margin-top: -7rem;
+        width:58rem;
+        box-shadow: 132px -131px 8px -127px rgb(165, 162, 162);
+
+
+    }
+    .vertical-navbar-div
+    {
+        margin-top: -2rem;
+        width: 25rem;
+        background-image: linear-gradient(white, white);
+        box-shadow: 2px -1px 0 0 lightgray;
+    }
+    .nav-bar
+    {
+        width: 20rem;
+        padding-left: 2em;
+        margin-top: -2rem;
+        height:auto;
+        text-decoration: none;
+        list-style-type:none;
+        margin-right:2rem;
+        
+    }
+    .nav-bar a{
+        text-decoration:none;
+        color:#C1D5A4;
+        font-size:x-large;
+        font-weight:bolder;
+        border-bottom: 5px grey;
+        padding-top: 1rem;
+       
+    }
+    .nav-bar li{
+        
+        padding-bottom: 1rem;
+        box-shadow: 0 0 1px 1px lightgray;
+        background-color: #f4ecdc;
+       
+    }
+    .vertical-navbar-div p{
+        margin-top: 2rem;
+        width:20rem;
+        margin-left: 2rem;
+        margin-bottom: 4rem;
+        text-align:left;
+        font-size: x-large;
+        color: #C1D5A4;
+        font-weight: bold;
+        border-top: 2px dotted #C1D5A4;
+        border-bottom: 2px dotted #C1D5A4;
+        box-shadow: 0 0 1px 1px dotted #C1D5A4;
+        background-color: #f4ecdc;
+    }
+    .nil
+    {
+        flex: 0.5;
+        background-image: linear-gradient(to top right, white lightgray);
+    }

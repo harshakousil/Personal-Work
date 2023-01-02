@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<style>
+    body{
+        margin-left: 40vw ;
+    }
+
+</style>
+<body>
+    <!-- lsbdcowbsd;vsbja;vvbjd -->
+    <h1>Registration Form</h1>
+    <form method="post" action="">
+        <table>
+        <tr>
+            <td><label for="user id">User id :</label></td>
+            <td>
+            <input type="text" placeholder="Enter User Id" minlength="5" maxlength="12" required>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="Password ">Password :</label></td>
+            <td> <input type="password" placeholder="Enter the PassWord" pattern=".{7,12}" minlength="7"
+                required><br></td>
+        </tr>
+    <tr>
+            <td><label for="name">Name :</label></td>
+            <td><input type="text" placeholder="Enter the name" pattern="[A-Za-z]{1,}" required></td>
+    </tr>
+    <tr>
+        <td><label for="adress">Address :</label></td>
+        <td><input type="text"placeholder="Enter the adress"></td>
+    </tr>
+    <tr>
+        <td><label for="country">Country :</label></td>
+        <td>
+            <select name="country" required >
+                <option disabled selected value="">None</option>
+                <option value="IND">INDIA</option>
+                <option value="US">US</option>
+                <option value="AUS">AUSTRALIA</option>
+                <option value="SRI">SRILANKA</option>
+                <option value="WI">WEST INDIES</option>
+            </select>
+        </td>
+
+    </tr>
+    <tr>
+        <td><label for="ZIP">ZIP Code :</label></td>
+        <td> <input type="number" placeholder="Enter the ZIP" pattern="{0,9}" required></td>
+    </tr>
+    <tr>
+        <td><label for="Email">Email :</label></td>
+        <td><input type="email" placeholder="Enter the Email" required></td>
+    </tr>
+    <tr>
+        <td><label for="sex" >Sex :</td>
+        <td><input type="radio" name = "sex" value="Male">
+            <label for="sex">MALE</label>
+            <input type="radio" name = "sex" value="Female">
+            <label for="sex">FEMALE</label></td>
+    </tr>
+    <tr>
+        <td> <label for="lang"> Language :</td>
+        <td><input type="checkbox" value="English" >
+            <label for="lang">English</label>
+            <input type="checkbox" value="Non English" >
+            <label for="lang"> Non English</label>
+        </label></td>
+    </tr>
+    <tr>
+        <td>
+            <label for="About">About :
+        </td>
+        <td>
+            <textarea rows="5" cols="25" ALIGN=BOTTOM></textarea>
+        </label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" ><input type="submit" style="margin-left: 7vw; margin-top: 2vh;"value="Submit"></td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>

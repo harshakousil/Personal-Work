@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List Grid View Demo</title>
+
+    <!-- (A) CSS & JS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        html,
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        #sList {
+            font-size: 2rem;
+            padding: 2px;
+
+        }
+
+        #sGrid {
+            font-size: 2rem;
+            padding: 2px;
+            margin-left: 10px;
+        }
+    </style>
+    <script src="list-grid.js"></script>
+</head>
+<style>
+    /* (A) LIST VIEW BY DEFAULT */
+    #lgDemo {
+        display: grid;
+        grid-template-columns: 1000%;
+        grid-gap: 5px;
+    }
+
+    #lgDemo .item {
+        padding: 10px;
+        border: 1px solid #ddd;
+        width: fit-content
+    }
+
+    #lgDemo .item:nth-child(odd) {
+        background: #f7f7f7;
+    }
+
+    /* (B) TRANSFORM INTO GRID VIEW */
+    #lgDemo.grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #lgDemo.grid .item:nth-child(odd) {
+        background: none;
+    }
+
+    /* (X) DOES NOT MATTER */
+    * {
+        font-family: arial, sans-serif;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <navbar
+        class="w-full max-h-screen max-w-screen-xl mx:auto text-gray-900 bg-gradient-to-br from-transparent to-yellow-100">
+        <nav class="flex  justify-between py-8 px-6 max-w-screen-xl md:px-12 lg:px-16 xl:px-24">
+            <button onclick="openSidebar()"
+                class="sidebar-open my-5 block invisible max-md:visible relative z-30 focus:outline-none transform  -translate-x-1/2 -translate-y-1/2 active:scale-75 transition-transform ">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="btn-open h-5 w-5 transform transition duration-500 ease-in-out" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="btn-close hidden h-5 w-5 transform transition duration-500 ease-in-out" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M3 7a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 13a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+            <a href="#" class="text-3xl md:text-4xl font-bold tracking-wide w-full">
+                Shop<span class="text-yellow-500">ify</span>
+            </a>
+            <div class=" w-2/5 flex justify-around">
+
+                <div class="left-0">
+                    <button id="search"
+                        class="search-menu flex justify-center items-center h-12 px-5 font-medium text-gray-100 bg-yellow-500 whitespace-nowrap hover:bg-yellow-600 hover:text-white
+                        rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class=" w-full menu-resposive hidden fixed flex max-md:mt-2 items-center inset-0 transition-all  backdrop-blur-xl z-20 md:static  md:flex items-center justify-center space-y-8 md:space-y-0 flex-col md:flex-row md:space-x-8 -mt-56 md:mt-0 ">
+                    <ul class="flex flex-col  md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6 lg:md:-x-8">
+                        <li class="text-lg md:text-base lg:text-lg font-medium group text-yellow-500">
+                            <a href="#">Home
+                            </a>
+                            <div
+                                class="h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            </div>
+                        </li>
+
+                        <li
+                            class="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
+                            <button onclick="window.location.replace('../Cart/Cart_page.html')" class="relative flex">
+                                <svg class="flex-1 w-8 h-8 fill-current" viewbox="0 0 24 24">
+                                    <path
+                                        d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" />
+                                </svg>
+                                <span
+                                    class="absolute right-0 top-0 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center"><span
+                                        id="cartIcon"></span>
+                                </span>
+                            </button>
+                        </li>
+                        <li class="text-lg md:text-base lg:text-lg font-medium group">
+                            <button id="delete">Logout
+                            </button>
+                            <div
+                                class="h-0.5 bg-yellow-500 scale-x-0 group-hover:scale-100 transition-transform origin-left rounded-full duration-300 ease-out">
+                            </div>
+                        </li>
+                    </ul>
+                    <div
+                        class=" w-full sidebar max-md:visible  z-20 p-2  top-10 overflow-y-auto text-center  hidden flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6 lg:md:-x-8">
+
+                        <ul>
+                            <li class=" w-full nav-item dropdown static ">
+                                <a class="nav-link  block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out dropdown-toggle flex items-center whitespace-nowrap"
+                                    href="#" data-mdb-ripple="true" data-mdb-ripple-color="light" type="button"
+                                    id="dropdownMenuButtonX" data-bs-toggle="dropdown" aria-expanded="false">Filters
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down"
+                                        class="w-2 ml-2" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 320 512" onclick="dropdown()">
+                                        <path fill="currentColor"
+                                            d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu hidden w-full mt-0 h-full shadow-lg bg-white top-full"
+                                    aria-labelledby="dropdownMenuButtonX" id="dropDownMenu">
+                                    <div class="w-full px-6 lg:px-8 py-5 w-[400px]">
+                                        <div class="w-full">
+                                            <div class="flex  justify-end">
+
+                                                <button id="clearAll" class="text-blue-600 text-sm">CLEARALL</button>
+                                            </div>
+                                            <form id="filter" class="">
+                                                <div class="flex  justify-evenly">
+                                                    <div class="w-[200px]">
+                                                        <label class="px-4 text-lg font-bold">Price</label>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="Below 100" name="price_filter"
+                                                                value=100 />
+                                                            <label class="ml-2" for="Below 100">Below 100</label>
+                                                        </div>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="Above 200" name="price_filter"
+                                                                value=200 />
+                                                            <label class="ml-2" for="Above 200">Above 200</label>
+                                                        </div>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="Above 300" name="price_filter"
+                                                                value=300 />
+                                                            <label class="ml-2" for="Above 300">Above 300</label>
+                                                        </div>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="Above 400" name="price_filter"
+                                                                value=400 />
+                                                            <label class="ml-2" for="Above 400">Above 400</label>
+                                                        </div>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="Above 500" name="price_filter"
+                                                                value=500 />
+                                                            <label class="ml-2" for="Above 500">Above 500</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-[200px]">
+                                                        <label class="px-4 text-lg font-bold">Category</label>
+                                                        <div class="flex flex-col items-start w-full ">
+                                                            <div class="">
+                                                                <input type="checkbox" id="men" name="price_filter"
+                                                                    value="men's clothing" />
+                                                                <label class="ml-2" for="men">Men</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="checkbox" id="women" name="price_filter"
+                                                                    value="women's clothing" />
+                                                                <label class="ml-2" for="women">Women</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="checkbox" id="jewelery" name="price_filter"
+                                                                    value="jewelery" />
+                                                                <label class="ml-2" for="jewelery">Jewelery</label>
+                                                            </div>
+                                                            <div class="">
+                                                                <input type="checkbox" id="electronics"
+                                                                    name="price_filter" value="electronics" />
+                                                                <label class="ml-2"
+                                                                    for="electronics">Electronics</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-[200px]">
+                                                        <label class="px-4 text-lg font-bold">Ratings</label>
+
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="3star" name="rate_filter" value=3 />
+                                                            <label class="ml-2" for="3star">Above 3 star</label>
+                                                        </div>
+                                                        <div class="w-[100px]">
+                                                            <input type="radio" id="4star" name="rate_filter" value=4 />
+                                                            <label class="ml-2" for="4star">Above 4 star</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit"
+                                                    class=" w-[100px] h-[50px]  text-white py-1  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Filter</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="search-form hidden flex items-center space-x-4 px-6 mx-auto max-w-screen-xl md:px-12 lg:px-16 xl:px-24 
+                        transform duration-500 transition-all">
+            <div class="flex bg-gray-200 p-2 w-full space-x-2 rounded-lg items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-75 ml-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input id="input"
+                    class="w-full bg-gray-50  h-8 outline-none border-transparent focus:border-transparent focus:ring-0 rounded-lg text-xl sm:text-base"
+                    type="text" placeholder="Type here" />
+            </div>
+        </div>
+    </navbar>
+    <div class="grid grid-cols-12">
+        <div class=" col-span-3 static h-screen shadow-md bg-white px-1  max-md:hidden ">
+            <div>
+                <form id="filter">
+                    <div class="flex justify-between">
+
+                        <label class="px-4 text-lg font-bold">Price</label>
+                        <button id="clearAll" class="text-blue-600 text-sm">CLEAR ALL</button>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="Below 100" name="price_filter" value=100 />
+                        <label class="ml-2" for="Below 100">Below 100</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="Above 200" name="price_filter" value=200 />
+                        <label class="ml-2" for="Above 200">Above 200</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="Above 300" name="price_filter" value=300 />
+                        <label class="ml-2" for="Above 300">Above 300</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="Above 400" name="price_filter" value=400 />
+                        <label class="ml-2" for="Above 400">Above 400</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="Above 500" name="price_filter" value=500 />
+                        <label class="ml-2" for="Above 500">Above 500</label>
+                    </div>
+
+
+                    <label class="px-4 text-lg font-bold">Category</label>
+                    <div class="px-8 py-2">
+                        <input type="checkbox" id="men" name="price_filter" value="men's clothing" />
+                        <label class="ml-2" for="men">Men</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="checkbox" id="women" name="price_filter" value="women's clothing" />
+                        <label class="ml-2" for="women">Women</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="checkbox" id="jewelery" name="price_filter" value="jewelery" />
+                        <label class="ml-2" for="jewelery">Jewelery</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="checkbox" id="electronics" name="price_filter" value="electronics" />
+                        <label class="ml-2" for="electronics">Electronics</label>
+                    </div>
+
+
+                    <label class="px-4 text-lg font-bold">Ratings</label>
+
+                    <div class="px-8 py-2">
+                        <input type="radio" id="3star" name="rate_filter" value=3 />
+                        <label class="ml-2" for="3star">Above 3 star</label>
+                    </div>
+                    <div class="px-8 py-2">
+                        <input type="radio" id="4star" name="rate_filter" value=4 />
+                        <label class="ml-2" for="4star">Above 4 star</label>
+                    </div>
+                    <button type="submit"
+                        class="float-right  text-white py-1  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Filter</button>
+                </form>
+            </div>
+
+        </div class="col-span-9 static  w-full">
+        <section class="bg-[#F3F4F6] col-span-12 md:col-span-9  md:w-full pb-10 lg:pt-[50px] lg:pb-20 ">
+            <div class="w-full flex justify-end">
+                <button id="sList">&#8863;</button>
+                <button id="sGrid">&#8862;</button>
+            </div>
+            <div id="lgDemo" class="">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+            </div>
+            <div class="container lg:w-full md:w-5/6 mx-auto">
+                <div id="products" class=" w-full flex flex-wrap">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("sList").onclick = () => {
+            document.getElementById("lgDemo").classList.remove("grid");
+        };
+        document.getElementById("sGrid").onclick = () => {
+            document.getElementById("lgDemo").classList.add("grid");
+        };
+    });
+
+</script>
