@@ -53,7 +53,7 @@ const getProducts = {
         })
         if(response.data.msg=="error")
         {
-            console.log("hiii");
+            // console.log("hiii");
             let err=document.createElement("div")
             err.innerHTML="Internal Error"
             document.getElementById("static").appendChild(err)
